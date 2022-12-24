@@ -3,11 +3,66 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="jacks page">
-  <main>hello, world!</main>
+  <main>
+    <h1>jacks page</h1>
+    <p>a place on the internet, just like any other place</p>
+    <div class="leaves">
+      <p>yeah</p>
+    </div>
+  </main>
 </Layout>
 
 <style>
+  .leaves {
+    margin: 1rem 0;
+    width: 400px;
+    text-align: center;
+    background-image: url(/assets/leaves.bmp);
+    background-size: 25rem;
+    image-rendering: pixelated;
+    color: white;
+    padding: 2rem;
+  }
+
+  .leaves p {
+    font-weight: bold;
+    font-size: 5rem;
+    -webkit-text-stroke: 3px black;
+  }
+
+  :root {
+    font-size: 18px;
+
+    --main-bg-color: #ffadbc;
+    --main-text-color: rgb(36, 36, 36);
+  }
+
+  html,
+  body {
+    height: 100%;
+    background-color: var(--main-bg-color);
+  }
+
+  body {
+    padding: 2rem;
+    color: var(--main-text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0.3rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
   main {
+    display: flex;
+    flex-direction: column;
     font-family: monospace;
   }
 </style>
