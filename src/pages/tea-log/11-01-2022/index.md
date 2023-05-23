@@ -1,0 +1,19 @@
+---
+layout: ../../../layouts/Markdown.astro
+title: 11-01-2022
+rating: 8
+---
+
+![green rimmed glass mug of tea, sitting on desk, with a blurred lemon loaf visible behind the tea, square aspect ratio](/assets/tea-log/11-01-2022/tea.jpg)
+
+first tea log!
+
+i made a nice little tetley tea in a glass mug i was gifted for christmas by leah
+
+we just had sun sushi, and stopped by starbucks
+
+since i'm not a starbucks tea enjoyer, i grabbed a lemon loaf, as seen in the blurred background above
+
+overall, good tea, and very good combination with the lemon loaf
+
+**8/10**

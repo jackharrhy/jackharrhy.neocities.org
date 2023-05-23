@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const logs = Object.keys(import.meta.glob("./*-*-*/*.md")).map(
+  (file) => file.split("/")[1]
+);
+---
+
+<Layout title="tea log">
+  <main>
+    <h1>tea log</h1>
+    <ul>
+      {
+        logs.map((log) => (
+          <a href={`./${log}/`}>
+            <li>{log}</li>
+          </a>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    font-family: monospace;
+  }
+</style>

@@ -6,16 +6,28 @@ import Layout from "../layouts/Layout.astro";
   <main>
     <h1>jacks page</h1>
     <p>a place on the internet, just like any other place</p>
-    <div class="leaves">
-      <p>yeah</p>
-    </div>
+    <a class="leaves" href="./tea-log/">
+      <div>
+        <p>tea log</p>
+      </div>
+    </a>
   </main>
 </Layout>
 
 <style>
+  main {
+    display: flex;
+    flex-direction: column;
+    font-family: monospace;
+  }
+
   .leaves {
+    text-decoration: none;
+  }
+
+  .leaves div {
     margin: 1rem 0;
-    width: 400px;
+    width: 600px;
     text-align: center;
     background-image: url(/assets/leaves.png);
     background-size: 25rem;
@@ -28,41 +40,5 @@ import Layout from "../layouts/Layout.astro";
     font-weight: bold;
     font-size: 5rem;
     -webkit-text-stroke: 3px black;
-  }
-
-  :root {
-    font-size: 18px;
-
-    --main-bg-color: #ffadbc;
-    --main-text-color: rgb(36, 36, 36);
-  }
-
-  html,
-  body {
-    height: 100%;
-    background-color: var(--main-bg-color);
-  }
-
-  body {
-    padding: 2rem;
-    color: var(--main-text-color);
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    margin: 0.3rem 0;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    font-family: monospace;
   }
 </style>
