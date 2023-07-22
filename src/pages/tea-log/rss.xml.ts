@@ -19,12 +19,11 @@ export const get: APIRoute = async function get({ site }) {
     link: `${import.meta.env.BASE_URL}tea-log/${slug}/`,
   }));
 
-  console.log(items);
-
   return rss({
     title: "jackharrhy.neocities.org - tea-log",
     description: "tea is being consumed, and logged",
     site: site.toString(),
     items,
+    stylesheet: "/rss/tealog.xsl",
   });
 };
