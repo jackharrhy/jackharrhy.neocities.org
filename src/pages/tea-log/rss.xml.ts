@@ -25,7 +25,7 @@ export const get: APIRoute = async function get({ site }) {
     return {
       title: slug,
       pubDate: toDate(slug),
-      link: teaGifUrl,
+      link: `${import.meta.env.BASE_URL}tea-log/${slug}/`,
       enclosure: {
         type: "image/gif",
         url: teaGifUrl,
