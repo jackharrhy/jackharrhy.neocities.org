@@ -24,6 +24,5 @@ export const get: APIRoute = async function get({ site }) {
     description: "tea is being consumed, and logged",
     site: site.toString(),
     items,
-    stylesheet: "/rss/tealog.xsl",
   });
 };
