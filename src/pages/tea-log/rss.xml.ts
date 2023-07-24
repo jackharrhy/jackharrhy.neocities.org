@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import fs from "fs";
 
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
@@ -13,11 +14,25 @@ export const get: APIRoute = async function get({ site }) {
 
   const tealogs = await getCollection("tealog");
 
-  const items = tealogs.map(({ slug }) => ({
-    title: slug,
-    pubDate: toDate(slug),
-    link: `${import.meta.env.BASE_URL}tea-log/${slug}/`,
-  }));
+  const items = tealogs.map(({ slug }) => {
+    const teaGifPath = `./public/assets/tea-log/${slug}/tea.gif`;
+    const teaGifSize = fs.statSync(teaGifPath).size;
+
+    const teaGifUrl = `${
+      import.meta.env.BASE_URL
+    }tea-log/assets/${slug}/tea.gif`;
+
+    return {
+      title: slug,
+      pubDate: toDate(slug),
+      link: teaGifUrl,
+      enclosure: {
+        type: "image/gif",
+        url: teaGifUrl,
+        length: teaGifSize,
+      },
+    };
+  });
 
   return rss({
     title: "jackharrhy.neocities.org - tea-log",

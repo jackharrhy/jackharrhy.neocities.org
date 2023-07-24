@@ -13,7 +13,12 @@ const tealogs = await getCollection("tealog");
       {
         tealogs.map((tealog) => (
           <a href={`./${tealog.slug}/`}>
-            <li>{tealog.slug}</li>
+            <>
+              <li>
+                <img src={`/assets/tea-log/${tealog.slug}/tea.gif`} />
+                {tealog.slug}
+              </li>
+            </>
           </a>
         ))
       }
@@ -27,5 +32,22 @@ const tealogs = await getCollection("tealog");
     display: flex;
     flex-direction: column;
     font-family: monospace;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.4rem;
+  }
+
+  li img {
+    height: 1em;
   }
 </style>
