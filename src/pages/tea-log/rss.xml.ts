@@ -20,7 +20,7 @@ export const get: APIRoute = async function get({ site }) {
 
     const teaGifUrl = `${
       import.meta.env.BASE_URL
-    }tea-log/assets/${slug}/tea.gif`;
+    }assets/tea-log/${slug}/tea.gif`;
 
     return {
       title: slug,
