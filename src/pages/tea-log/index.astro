@@ -1,9 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 const tealogs = await getCollection("tealog");
+
+tealogs.reverse();
 ---
 
 <Layout title="tea log">
