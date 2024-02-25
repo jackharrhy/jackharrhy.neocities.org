@@ -4,7 +4,7 @@ import fs from "fs";
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 
-export const get: APIRoute = async function get({ site }) {
+export const GET: APIRoute = async function get({ site }) {
   if (!site) throw new Error("no site");
 
   const tealogs = await getCollection("tealog");
