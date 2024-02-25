@@ -8,7 +8,7 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const { id, render } = (await getEntryBySlug("tealog", slug!))!;
+const { render } = (await getEntryBySlug("tealog", slug!))!;
 const { Content } = await render();
 ---
 

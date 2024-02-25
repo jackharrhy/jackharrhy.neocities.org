@@ -4,17 +4,12 @@ import fs from "fs";
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 
-const toDate = (date: string) => {
-  const [day, month, year] = date.split("-").map((n) => parseInt(n, 10));
-  return new Date(year, month - 1, day);
-};
-
 export const get: APIRoute = async function get({ site }) {
   if (!site) throw new Error("no site");
 
   const tealogs = await getCollection("tealog");
 
-  const items = tealogs.map(({ slug }) => {
+  const items = tealogs.map(({ slug, data: { date } }) => {
     const teaGifPath = `./public/assets/tea-log/${slug}/tea.gif`;
     const teaGifSize = fs.statSync(teaGifPath).size;
 
@@ -24,7 +19,7 @@ export const get: APIRoute = async function get({ site }) {
 
     return {
       title: slug,
-      pubDate: toDate(slug),
+      pubDate: date,
       link: `${import.meta.env.BASE_URL}tea-log/${slug}/`,
       enclosure: {
         type: "image/gif",
