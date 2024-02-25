@@ -2,12 +2,12 @@ import type { APIRoute } from "astro";
 import fs from "fs";
 
 import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
+import { getSortedTealogs } from "./index.astro";
 
 export const GET: APIRoute = async function get({ site }) {
   if (!site) throw new Error("no site");
 
-  const tealogs = await getCollection("tealog");
+  const tealogs = await getSortedTealogs();
 
   const items = tealogs.map(({ slug, data: { date } }) => {
     const teaGifPath = `./public/assets/tea-log/${slug}/tea.gif`;

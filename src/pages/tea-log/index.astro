@@ -3,15 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 
 import { getCollection } from "astro:content";
 
-const tealogs = (await getCollection("tealog")).sort((a, b) => {
-  if (a.data.date < b.data.date) {
-    return 1;
-  }
-  if (a.data.date > b.data.date) {
-    return -1;
-  }
-  return 0;
-});
+export const getSortedTealogs = async () =>
+  (await getCollection("tealog")).sort((a, b) => {
+    if (a.data.date < b.data.date) {
+      return 1;
+    }
+    if (a.data.date > b.data.date) {
+      return -1;
+    }
+    return 0;
+  });
+
+const tealogs = await getSortedTealogs();
 ---
 
 <Layout title="tea log">
